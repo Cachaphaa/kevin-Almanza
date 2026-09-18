@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>19 · Mega Menu — Prototipos de Interfaces</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* Paleta propia de este prototipo (no toca css/style.css, así los otros 18 quedan igual) */
+  :root {
+    --bg: #fff8f0;
+    --text: #211a2e;
+    --muted: #8c8299;
+    --accent: #ff5c39;
+    --accent-dark: #d6431f;
+    --header-bg: #1c1830;
+    --border: #f0e2d4;
+    --surface: #fdeee0;
+    --dark-bg: #14101f;
+    --dark-surface: #251f3d;
+    --radius: 22px;
+  }
+
+  .header-mega-menu .logo,
+  .header-mega-menu .site-nav a,
+  .header-mega-menu .mega-trigger { color: #f4f1fb; opacity: .8; }
+  .header-mega-menu .logo .dot { background: var(--accent); }
+  .header-mega-menu .site-nav a:hover,
+  .header-mega-menu .mega-trigger:hover { color: var(--accent); opacity: 1; }
+  .header-mega-menu .nav-cta { background: var(--accent); color: #fff !important; }
+
+  .mega-panel { background: var(--dark-surface); border-bottom: none; box-shadow: 0 24px 44px rgba(10, 8, 20, .35); }
+  .mega-col h4 { color: #a79bd1; }
+  .mega-col a { color: #f4f1fb; }
+  .mega-col a:hover { color: var(--accent); }
+  .mega-highlight { background: rgba(255, 255, 255, .07); }
+  .mega-highlight p { color: #cbc3e3; }
+
+  .btn { border-radius: var(--radius); }
+</style>
+</head>
+<body>
+
+  <div class="proto-bar">
+    <span>Prototipo <strong>19 — Mega Menu</strong></span>
+    <a href="index.html">← Volver al índice</a>
+  </div>
+
+  <header class="site-header header-mega-menu">
+    <div class="wrap">
+      <a href="#" class="logo"><span class="dot"></span>Nova</a>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li class="has-mega">
+            <button class="mega-trigger" data-toggle="#mega-panel">Servicios <span class="caret">▾</span></button>
+          </li>
+          <li><a href="#">Nosotros</a></li>
+          <li><a href="#">Contacto</a></li>
+          <li><a href="#" class="nav-cta">Cotizar</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div id="mega-panel" class="mega-panel">
+      <div class="wrap mega-cols">
+        <div class="mega-col">
+          <h4>Diseño</h4>
+          <ul>
+            <li><a href="#">UX Research</a></li>
+            <li><a href="#">UI Design</a></li>
+            <li><a href="#">Prototipado</a></li>
+          </ul>
+        </div>
+        <div class="mega-col">
+          <h4>Desarrollo</h4>
+          <ul>
+            <li><a href="#">Frontend</a></li>
+            <li><a href="#">Backend</a></li>
+            <li><a href="#">Apps móviles</a></li>
+          </ul>
+        </div>
+        <div class="mega-col">
+          <h4>Branding</h4>
+          <ul>
+            <li><a href="#">Identidad visual</a></li>
+            <li><a href="#">Naming</a></li>
+            <li><a href="#">Guías de marca</a></li>
+          </ul>
+        </div>
+        <div class="mega-col mega-highlight">
+          <h4>Destacado</h4>
+          <p>¿No sabés por dónde empezar? Agendá una asesoría gratuita con el equipo.</p>
+          <a href="#" class="btn">Agendar</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <h1>Diseñamos experiencias digitales memorables</h1>
+        <p>Ayudamos a marcas a conectar con sus usuarios a través de interfaces claras, rápidas y hechas a medida.</p>
+        <a href="#" class="btn">Conócenos</a>
+      </div>
+    </section>
+
+    <section class="wrap features">
+      <div class="feature-card">
+        <div class="icon">UX</div>
+        <h3>Diseño UX/UI</h3>
+        <p>Investigamos y prototipamos interfaces centradas en la persona usuaria.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">DEV</div>
+        <h3>Desarrollo Web</h3>
+        <p>Convertimos los diseños en productos reales, rápidos y accesibles.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">BR</div>
+        <h3>Branding</h3>
+        <p>Construimos identidades visuales coherentes en cada punto de contacto.</p>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="wrap">
+        <h2>¿Listo para mejorar tu producto digital?</h2>
+        <p>Escríbenos y agenda una asesoría gratuita.</p>
+        <a href="#" class="btn">Hablemos</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-cols">
+        <div>
+          <div class="logo"><span class="dot"></span>Nova</div>
+          <p>Estudio de diseño e interfaces digitales.</p>
+        </div>
+        <div>
+          <h4>Empresa</h4>
+          <ul><li><a href="#">Nosotros</a></li><li><a href="#">Equipo</a></li><li><a href="#">Contacto</a></li></ul>
+        </div>
+        <div>
+          <h4>Servicios</h4>
+          <ul><li><a href="#">UX/UI</a></li><li><a href="#">Desarrollo</a></li><li><a href="#">Branding</a></li></ul>
+        </div>
+        <div>
+          <h4>Síguenos</h4>
+          <ul><li><a href="#">Instagram</a></li><li><a href="#">LinkedIn</a></li><li><a href="#">Behance</a></li></ul>
+        </div>
+      </div>
+      <p>© 2026 Nova — Prototipo académico, Diseño de Interfaces Software.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

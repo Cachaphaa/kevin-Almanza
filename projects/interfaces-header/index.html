@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prototipos de Interfaces — Índice</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .index-hero { padding: 60px 0 20px; text-align: center; }
+  .index-hero h1 { font-size: 32px; margin: 0 0 10px; }
+  .index-hero p { color: var(--muted); margin: 0; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 40px 0 80px;
+  }
+  .card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid var(--border);
+  }
+  .card .n { font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: .5px; }
+  .card h3 { margin: 0; font-size: 18px; }
+  .card p { margin: 0; color: var(--muted); font-size: 13.5px; flex: 1; }
+  .card a.open {
+    align-self: flex-start;
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 14px;
+  }
+  .card a.open:hover { color: var(--accent-dark); }
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="proto-bar">
+    <span><strong>Diseño de Interfaces Software</strong> — 19 prototipos de header</span>
+    <span>Estudiante: kalmanzam14</span>
+  </div>
+
+  <section class="index-hero">
+    <div class="wrap">
+      <h1>Prototipos de Interfaces</h1>
+      <p>19 layouts de header/navegación, cada uno con el mismo contenido de página para comparar solo la estructura del encabezado.</p>
+    </div>
+  </section>
+
+  <div class="wrap grid">
+
+    <div class="card">
+      <span class="n">01</span>
+      <h3>Classic</h3>
+      <p>Logo a la izquierda y menú horizontal a la derecha, en una sola fila.</p>
+      <a class="open" href="01-classic.html">Ver prototipo →</a>
+    </div>
+
+    <div class="card">
+      <span class="n">02</span>
+      <h3>Modern</h3>
+      <p>Logo arriba y el menú en una segunda línea, dentro del mismo bloque de header.</p>
+      <a class="open" href="02-modern.html">Ver prototipo →</a>
+    </div>
+
+    <div class="card">
+      <span class="n">03</span>
+      <h3>Plain</h3>
+      <p>Logo + enlaces cortos en cajas individuales, estilo minimalista.</p>
+      <a class="open" href="03-plain.html">Ver prototipo →</a>
+    </div>
+
+    <div class="card">
+      <span class="n">04</span>
+      <h3>Stack Left</h3>
+      <p>Logo en una fila completa alineado a la izquierda, menú debajo.</p>
+      <a class="open" href="04-stack-left.html">Ver prototipo →</a>
+    </div>
+
+    <div class="card">
+      <span class="n">05</span>
+      <h3>Stack Center</h3>
+      <p>Logo centrado en su propia fila, menú centrado debajo.</p>
+      <a class="open" href="05-stack-center.html">Ver prototipo →</a>
+    </div>
+
+    <div class="card">
+      <span class="n">06</span>
+      <h3>Stack Right</h3>
+      <p>Logo alineado a la derecha en su fila, menú debajo alineado igual.</p>
+      <a class="open" href="06-stack-right.html">Ver prototipo →</a>
+    </div>
+
+    <div class="card">
+      <span class="n">07</span>
+      <h3>Magazine</h3>
+      <p>Masthead grande y centrado (como una revista) con barra de menú completa debajo.</p>
+      <a class="open" href="07-magazine.html">Ver prototipo →</a>
+    </div>
+
+    <div class="card">
+      <span class="n">08</span>
+      <h3>Creative</h3>
+      <p>Barra lateral izquierda colapsada: ícono de menú arriba, puntos abajo. Haz clic para expandirla.</p>
+      <a class="open" href="08-creative.html">Ver prototipo →</a>
+    </div>
+
+    <div class="card">
+      <span class="n">09</span>
+      <h3>Creative Always Open</h3>
+      <p>Barra lateral izquierda siempre expandida, con logo y menú visibles.</p>
+      <a class="open" href="09-creative-always-open.html">Ver prototipo →</a>
+    </div>
+
+    <div class="card">
+      <span class="n">10</span>
+      <h3>Fixed</h3>
+      <p>Igual al Classic, pero el header se mantiene fijo (sticky) al hacer scroll.</p>
+      <a class="open" href="10-fixed.html">Ver prototipo →</a>
+    </div>
+
+    <div class="card">
+      <span class="n">11</span>
+      <h3>Creative Right</h3>
+      <p>Barra lateral colapsada, igual que Creative, pero ubicada a la derecha.</p>
+      <a class="open" href="11-creative-right.html">Ver prototipo →</a>
+    </div>
+
+    <div class="card">
+      <span class="n">12</span>
+      <h3>Creative Right Always Open</h3>
+      <p>Barra lateral derecha siempre expandida, con logo y menú visibles.</p>
+      <a class="open" href="12-creative-right-always-open.html">Ver prototipo →</a>
+    </div>
+
+    <div class="card">
+      <span class="n">13</span>
+      <h3>Empty</h3>
+      <p>Header vacío, sin logo ni menú — pensado para contenido 100% personalizado.</p>
+      <a class="open" href="13-empty.html">Ver prototipo →</a>
+    </div>
+
+    <div class="card">
+      <span class="n">14</span>
+      <h3>Transparent</h3>
+      <p>Header con fondo transparente que flota sobre una imagen/hero de portada.</p>
+      <a class="open" href="14-transparent.html">Ver prototipo →</a>
+    </div>
+
+    <div class="card">
+      <span class="n">15</span>
+      <h3>Simple</h3>
+      <p>Logo + un solo ícono de menú (hamburguesa) que despliega el menú.</p>
+      <a class="open" href="15-simple.html">Ver prototipo →</a>
+    </div>
+
+    <div class="card">
+      <span class="n">16</span>
+      <h3>Overlay</h3>
+      <p>El ícono de menú abre un menú a pantalla completa sobre el resto del contenido.</p>
+      <a class="open" href="16-overlay.html">Ver prototipo →</a>
+    </div>
+
+    <div class="card">
+      <span class="n">17</span>
+      <h3>Below Slider</h3>
+      <p>El menú aparece debajo de un slider/banner principal, no encima.</p>
+      <a class="open" href="17-below-slider.html">Ver prototipo →</a>
+    </div>
+
+    <div class="card">
+      <span class="n">18</span>
+      <h3>Below Slider Split</h3>
+      <p>Menú dividido en dos grupos alrededor del logo, debajo del slider.</p>
+      <a class="open" href="18-below-slider-split.html">Ver prototipo →</a>
+    </div>
+
+    <div class="card">
+      <span class="n">19</span>
+      <h3>Mega Menu</h3>
+      <p>Un ítem del menú abre un panel desplegable ancho con varias columnas de enlaces.</p>
+      <a class="open" href="19-mega-menu.html">Ver prototipo →</a>
+    </div>
+
+  </div>
+
+</body>
+</html>

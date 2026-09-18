@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoLogistics — Arquitectura de Envíos</title>
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="detail-header">
+    <a class="back-link" href="../../index.html">← Volver al portafolio</a>
+    <h1>EcoLogistics — Arquitectura de Envíos</h1>
+    <div class="meta">Arquitecturas de Software · Diagrama de clases, diagrama de secuencia y justificación arquitectónica</div>
+  </div>
+
+  <div class="section">
+    <h2>Contexto</h2>
+    <p>Rediseño orientado a servicios de la plataforma de gestión de pedidos, pagos y notificaciones de EcoLogistics. El sistema legado tenía la lógica de pago incrustada con condicionales dentro del flujo de pedidos y el envío de notificaciones invocado directamente desde el código que cambia el estado del pedido, lo que obligaba a modificar clases centrales cada vez que se agregaba un método de pago o un canal de notificación nuevo.</p>
+  </div>
+
+  <div class="section">
+    <h2>Diagrama de clases</h2>
+    <p>El modelo de dominio gira en torno a <strong>Pedido</strong>, que compone sus <strong>ItemPedido</strong> (no existen sin el pedido que los contiene), se asocia con <strong>Cliente</strong> y con un <strong>EstadoPedido</strong>. El pago se resuelve con el patrón Strategy a través de la interfaz <strong>MetodoPago</strong> (TarjetaCredito, PayPal, Transferencia), y las notificaciones con la interfaz <strong>Notificador</strong> (NotificadorEmail, NotificadorSMS).</p>
+    <figure>
+      <img src="../../assets/ecologistics/diagrama-clases.png" alt="Diagrama de clases de EcoLogistics">
+      <figcaption>Rombo relleno = composición · Flecha abierta = asociación · Línea punteada + triángulo hueco = realización de interfaz</figcaption>
+    </figure>
+  </div>
+
+  <div class="section">
+    <h2>Diagrama de secuencia — Procesar pago y notificar</h2>
+    <p>El cliente confirma el pago; <strong>Pedido</strong> delega el cobro en el <strong>MetodoPago</strong> concreto seleccionado y, al recibir la confirmación, cambia su propio estado a PAGADO. Luego dispara la notificación a través de <strong>Notificador</strong> sin bloquear la respuesta al cliente.</p>
+    <figure>
+      <img src="../../assets/ecologistics/diagrama-secuencia.png" alt="Diagrama de secuencia de EcoLogistics">
+      <figcaption>Flecha continua = llamada síncrona · Flecha punteada = retorno o envío asíncrono que no bloquea el flujo principal</figcaption>
+    </figure>
+  </div>
+
+  <div class="section">
+    <h2>Justificación arquitectónica</h2>
+    <table class="pattern-table">
+      <tr><th>Patrón</th><th>Rol</th></tr>
+      <tr>
+        <td>Strategy<br><span style="color:var(--muted)">Métodos de pago</span></td>
+        <td>La interfaz <strong>MetodoPago</strong> declara <code>procesarPago(monto)</code>. Cada método es una estrategia intercambiable en tiempo de ejecución; <strong>Pedido</strong> solo conoce la abstracción. Agregar una pasarela nueva es una clase adicional, no un cambio en la lógica de negocio (principio abierto/cerrado).</td>
+      </tr>
+      <tr>
+        <td>Observer<br><span style="color:var(--muted)">Notificación de estado</span></td>
+        <td><strong>Pedido</strong> notifica a través de <strong>Notificador</strong> cada cambio de estado, sin saber qué hará cada implementación. Agregar un canal nuevo (push, WhatsApp) no requiere tocar <strong>Pedido</strong>.</td>
+      </tr>
+      <tr>
+        <td>Factory<br><span style="color:var(--muted)">Creación</span></td>
+        <td>Centraliza en un único punto la decisión de qué clase concreta de <strong>MetodoPago</strong> instanciar, en vez de dispersarla en formularios o controladores.</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Principios de diseño aplicados</h2>
+    <ul>
+      <li><strong>Responsabilidad única:</strong> Pedido gestiona su ciclo de vida; MetodoPago resuelve el cobro; Notificador resuelve el aviso.</li>
+      <li><strong>Inversión de dependencias:</strong> Pedido depende de las interfaces MetodoPago y Notificador, nunca de una clase concreta.</li>
+      <li><strong>Composición sobre herencia:</strong> Pedido se compone de ItemPedido y usa estrategias inyectadas.</li>
+      <li><strong>Trazabilidad:</strong> cada transición de estado pasa por <code>cambiarEstado()</code>, un único punto donde auditar sin tocar el resto del sistema.</li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
