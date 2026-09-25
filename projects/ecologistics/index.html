@@ -40,18 +40,18 @@
 
   <div class="section">
     <h2>Justificación arquitectónica</h2>
-    <table class="pattern-table">
+    <table>
       <tr><th>Patrón</th><th>Rol</th></tr>
       <tr>
-        <td>Strategy<br><span style="color:var(--muted)">Métodos de pago</span></td>
+        <td>Strategy<br><span style="color:#666">Métodos de pago</span></td>
         <td>La interfaz <strong>MetodoPago</strong> declara <code>procesarPago(monto)</code>. Cada método es una estrategia intercambiable en tiempo de ejecución; <strong>Pedido</strong> solo conoce la abstracción. Agregar una pasarela nueva es una clase adicional, no un cambio en la lógica de negocio (principio abierto/cerrado).</td>
       </tr>
       <tr>
-        <td>Observer<br><span style="color:var(--muted)">Notificación de estado</span></td>
+        <td>Observer<br><span style="color:#666">Notificación de estado</span></td>
         <td><strong>Pedido</strong> notifica a través de <strong>Notificador</strong> cada cambio de estado, sin saber qué hará cada implementación. Agregar un canal nuevo (push, WhatsApp) no requiere tocar <strong>Pedido</strong>.</td>
       </tr>
       <tr>
-        <td>Factory<br><span style="color:var(--muted)">Creación</span></td>
+        <td>Factory<br><span style="color:#666">Creación</span></td>
         <td>Centraliza en un único punto la decisión de qué clase concreta de <strong>MetodoPago</strong> instanciar, en vez de dispersarla en formularios o controladores.</td>
       </tr>
     </table>
